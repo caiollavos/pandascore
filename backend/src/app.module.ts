@@ -1,12 +1,10 @@
 import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
 import { AuthModule } from '@modules/auth/auth.module';
-import { HomeModule } from '@modules/home/home/home.module';
-import { PandaScoreModule } from '@modules/pandasacore/pandasacore.module';
-import { RouterModule } from '@nestjs/core';
-import { AuthController } from '@controllers/auth/auth.controller';
-import { HomeController } from '@controllers/home/home.controller';
-import { AppService } from 'app.service';
+import { HomeModule } from '@modules/home/home.module';
+import { PandaScoreModule } from '@modules/panda-sacore/pandasacore.module';
+import { PlayersModule } from '@modules/players/players.module';
+import { AppService } from './app.service';
 
 @Module({
   imports: [
@@ -15,17 +13,8 @@ import { AppService } from 'app.service';
     }),
     AuthModule,
     HomeModule,
+    PlayersModule,
     PandaScoreModule,
-    RouterModule.register([
-      {
-        path: 'auth',
-        module: AuthController
-      },
-      {
-        path: 'home',
-        module: HomeController
-      },
-    ])
   ],
   providers: [
     AppService

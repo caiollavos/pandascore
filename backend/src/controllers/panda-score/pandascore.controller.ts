@@ -1,5 +1,5 @@
 import { Controller, Get } from '@nestjs/common';
-import { PandaScoreService } from '@services/pandascore/pandascore.service';
+import { PandaScoreService } from '@services/panda-score/pandascore.service';
 
 @Controller('pandascore')
 export class PandaScoreController {

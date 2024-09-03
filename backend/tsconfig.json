@@ -6,15 +6,16 @@
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "allowSyntheticDefaultImports": true,
+    "resolveJsonModule": true,
     "target": "ES2021",
     "sourceMap": true,
     "outDir": "./dist",
-    "baseUrl": "./src",
+    "baseUrl": "./",
     "paths": {
-      "@controllers/*": ["controllers/*"],
-      "@modules/*": ["modules/*"],
-      "@services/*": ["services/*"],
-      "@strategies/*": ["strategies/*"]
+      "@controllers/*": ["src/controllers/*"],
+      "@modules/*": ["src/modules/*"],
+      "@services/*": ["src/services/*"],
+      "@strategies/*": ["src/strategies/*"]
     },
     "incremental": true,
     "skipLibCheck": true,

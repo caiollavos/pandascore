@@ -14,4 +14,13 @@ export class PandaScoreService {
     );
     return response.data;
   }
+
+  async getPlayers(): Promise<any> {
+    const response = await firstValueFrom(
+      this.httpService.get('https://api.pandascore.co/players', {
+        headers: { Authorization: `Bearer ${process.env.PANDASCORE_API_KEY}` },
+      }),
+    );
+    return response.data;
+  }
 }

@@ -1,12 +1,12 @@
 import { Controller, Get } from '@nestjs/common';
 import { PandaScoreService } from '@services/panda-score/pandascore.service';
 
-@Controller('home')
-export class HomeController {
+@Controller('players')
+export class PlayersController {
   constructor(private readonly pandaScoreService: PandaScoreService) {}
 
   @Get()
-  async getMatches() {
-    return this.pandaScoreService.getMatches();
+  async getPlayers() {
+    return this.pandaScoreService.getPlayers();
   }
 }
