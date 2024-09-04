@@ -6,7 +6,7 @@ export class PlayersController {
   constructor(private readonly pandaScoreService: PandaScoreService) {}
 
   @Get()
-  async getPlayers() {
-    return this.pandaScoreService.getPlayers();
+  async getPlayers(): Promise<any> {
+    return await this.pandaScoreService.getPlayers();
   }
 }

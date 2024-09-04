@@ -10,7 +10,7 @@ export class AuthController {
   @Get()
   @UseGuards(AuthGuard('google'))
   async googleAuth(@Req() req) {
-    console.log(req)
+    return await console.log(req)
     // Inicia o redirecionamento para o Google
   }
 

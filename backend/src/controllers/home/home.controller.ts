@@ -4,12 +4,10 @@ import { IMatch } from 'src/models/matches/match.model';
 
 @Controller('home')
 export class HomeController {
-  constructor(private readonly pandaScoreService: PandaScoreService) {
-    debugger;
-  }
+  constructor(private readonly pandaScoreService: PandaScoreService) { }
 
   @Get()
   async getMatches(): Promise<Array<IMatch>> {
-    return this.pandaScoreService.getMatches();
+    return await this.pandaScoreService.getMatches();
   }
 }
