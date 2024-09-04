@@ -1,12 +1,13 @@
 import { HttpService } from '@nestjs/axios';
 import { Injectable } from '@nestjs/common';
 import { firstValueFrom } from 'rxjs';
+import { IMatch } from 'src/models/matches/match.model';
 
 @Injectable()
 export class PandaScoreService {
   constructor(private readonly httpService: HttpService) {}
 
-  async getMatches(): Promise<any> {
+  async getMatches(): Promise<Array<IMatch>> {
     const response = await firstValueFrom(
       this.httpService.get('https://api.pandascore.co/matches', {
         headers: { Authorization: `Bearer ${process.env.PANDASCORE_API_KEY}` },
