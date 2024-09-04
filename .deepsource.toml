@@ -1,6 +1,7 @@
 version = 1
 
-test_patterns = ["*/test/**"]
+exclude_patterns = ["node_modules", "bower_components", "out", "bin", "build", "dist"]
+test_patterns = ["**/__tests__/**", "**/*.spec.ts", "**/*.spec.js", "**/*.test.ts", "**/*.test.js"]
 
 [[analyzers]]
 name = "javascript"
@@ -13,4 +14,9 @@ enabled = true
     "browser",
     "jest"
   ]
+
+  [[analyzers]]
+  name = "test-coverage"
+  enabled = true
+  
   dialect = "typescript"
