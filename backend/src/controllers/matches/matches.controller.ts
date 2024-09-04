@@ -5,17 +5,15 @@ import { IUpcomingMatch } from 'src/models/matches/upcoming-match.model';
 
 @Controller('matches')
 export class MatchesController {
-  constructor(private readonly pandaScoreService: PandaScoreService) {
-    debugger;
-  }
+  constructor(private readonly pandaScoreService: PandaScoreService) { }
 
   @Get()
   async getMatches(): Promise<Array<IMatch>> {
-    return this.pandaScoreService.getMatches();
+    return await this.pandaScoreService.getMatches();
   }
 
   @Get('upcoming')
   async getUpcomingMatches(): Promise<Array<IUpcomingMatch>> {
-    return this.pandaScoreService.getUpcomingMatches();
+    return await this.pandaScoreService.getUpcomingMatches();
   }
 }
