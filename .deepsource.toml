@@ -1,0 +1,65 @@
+version = 1
+
+test_patterns = [
+  "test/",
+  "**/__tests__/",
+  "**/*_spec.ts",
+  "**/*_test.ts"
+]
+
+exclude_patterns = [
+  "node_modules/",
+  "dist/",
+  "build/",
+  "coverage/",
+  "*.config.js",
+  "*.config.ts"
+]
+
+[[analyzers]]
+name = "typescript"
+enabled = true
+[analyzers.meta]
+  runtime_version = "nodejs@18"
+  include = [
+    "src/**/*.ts",
+    "src/**/*.tsx"
+  ]
+  exclude = [
+    "src/**/__tests__/",
+    "src/**/*_spec.ts",
+    "src/**/*_test.ts"
+  ]
+  tsconfig = "tsconfig.json"
+
+[[analyzers]]
+name = "javascript"
+enabled = false
+
+[[analyzers]]
+name = "eslint"
+enabled = true
+[analyzers.meta]
+  config_path = ".eslintrc.json"
+
+[[analyzers]]
+name = "coverage"
+enabled = true
+[analyzers.meta]
+  report_path = "coverage/lcov.info"
+  format = "lcov"
+
+[[transformations]]
+name = "run-code-coverage"
+enabled = true
+run_on = "analyze"
+script = """
+# Install dependencies
+pnpm install
+
+# Run tests and generate coverage report
+pnpm test -- --coverage
+
+# Send the coverage report to DeepSource
+npx deepsource report --analyzer coverage --report-file coverage/lcov.info
+"""
