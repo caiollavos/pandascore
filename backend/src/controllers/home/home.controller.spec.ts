@@ -2,7 +2,7 @@ import { Test, TestingModule } from '@nestjs/testing';
 import { HomeController } from './home.controller';
 import { PandaScoreService } from '@services/panda-score/pandascore.service';
 
-describe('AuthController', () => {
+describe('HomeController', () => {
   let controller: HomeController;
   let service: PandaScoreService;
 
